@@ -1,0 +1,19 @@
+services:
+  main:
+    # image: 192.168.10.61:5000/test-private-gpt
+    build: .
+    volumes:
+      - ./:/app
+      # for nvidia devices
+      - /dev:/dev
+    # working_dir: /app
+    command: sleep infinity
+    shm_size: '16gb'
+    privileged: true
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
