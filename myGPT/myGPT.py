@@ -37,18 +37,18 @@ def main():
         case "LlamaCpp":
             from pprint import pprint
             pprint([
-                model_path, 
-                model_n_ctx, 
-                model_n_batch, 
-                callbacks, 
-                model_n_gpu_layers, 
+                model_path,
+                model_n_ctx,
+                model_n_batch,
+                callbacks,
+                model_n_gpu_layers,
             ])
             llm = LlamaCpp(
-                model_path=model_path, 
-                n_ctx=model_n_ctx, 
-                n_batch=model_n_batch, 
-                callbacks=callbacks, 
-                n_gpu_layers=model_n_gpu_layers, 
+                model_path=model_path,
+                n_ctx=model_n_ctx,
+                n_batch=model_n_batch,
+                callbacks=callbacks,
+                n_gpu_layers=model_n_gpu_layers,
                 verbose=True)
         case "GPT4All":
             llm = GPT4All(model=model_path, n_ctx=model_n_ctx, backend='gptj', callbacks=callbacks, verbose=False)
